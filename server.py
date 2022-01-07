@@ -33,7 +33,9 @@ def process_login():
 
     if crud.valid_taster(user):
         session['taster'] = user
-        return redirect('/make_reservation')
+        flash(f"{session['taster']} you are signed in!")
+        taster_id = crud. get_taster_id(user)
+        return redirect('/make_reservation', taster_id=taster_id)
 
     else:
         flash(f"That is not a valid username.")
@@ -100,7 +102,7 @@ def show_reservations():
         flash(f"There are no reservations for {taster}.")
         return redirect('/')
 
-        
+
 
 
 
