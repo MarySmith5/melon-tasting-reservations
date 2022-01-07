@@ -14,6 +14,18 @@ def create_taster(user_name):
     return taster
 
 
+def valid_taster(user_name):
+    """check to see if user_name has an account"""
+
+    return Taster.query.filter_by(user_name=user_name).first()
+
+
+def get_taster_id(user_name):
+
+    taster = Taster.query.filter_by(user_name=user_name).one()
+    return taster.taster_id
+
+
 def create_reservation(taster_id, date, time):
     """Create and return a reservation"""
 
@@ -31,10 +43,11 @@ def view_reservations(taster_id):
     return Reservation.query.filter_by(taster_id=taster_id).order_by('date').all()
 
 
-def check_taken(date, time):
+def check_taken(date, min, max):
     """Check to see if a reservation already exists for a given date and time"""
 
-    return Reservation.query.filter_by(date=date, time=time).first()
+    taken = Reservation.query.filter(Reservation.date==date, Reservation.time>=min, Reservation.time<=max).all()
+    return taken
 
 
 def check_double_reservation(taster_id, date):
