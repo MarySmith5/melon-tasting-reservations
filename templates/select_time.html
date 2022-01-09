@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+  body {
+    background: url("/static/images/melon-g9551061c7_1920.jpg");
+  }
+</style>
+{% endblock %}
+{% block title %}Option to add another appointment{% endblock %} 
+
+{% block body %}
+<div class="sidenav">
+  {% for msg in get_flashed_messages() %}
+  <p class="flash-msg">
+    {{ msg }}
+  </p>
+  {% endfor %}
+
+  <div>
+    <p></p>
+    <a class="md" href='/add_appointment/{{customer_id}}'>Add another appointment for the SAME customer </a>
+  </div>
+  <div>
+    <p></p>
+    <a class="md" href='/customer_options'>Click here to CHANGE customers</a>
+  </div>
+  <footer>
+    <img class="logo-sm" src="/static/friendly.png">
+    <p></p>
+    <a href="/login">Logout</a>
+    {% block footer %}{% endblock %}
+  </footer> 
+</div>
+
+{% endblock %}

@@ -1,0 +1,206 @@
+body {
+    background: #d1474c;
+    background-size: cover;
+    
+    text-align: center;
+    font-family: var(--bs-font-sans-serif);
+    color: white;
+    }
+    
+    .dark {
+        background-color: #333;
+        overflow-x: scroll; 
+        /* margin-top: 40px;
+        margin-bottom: 40px; */
+        padding-top: 40px;
+        opacity: 0.85;
+    
+    }
+    
+    a {
+        color:#d1474c;
+    }
+    
+    .large {
+        font-size: 30px;
+    }
+    
+    .md {
+        font-size: 20px;
+    }
+    
+    /* select:active,
+    textarea:active,
+    option .label {
+        color: #ffdee5 !important;
+    } */
+    
+    select, textarea, input {
+        background-color: #6fc965!important;
+    }
+    
+    /* select option[value=""] {
+        background-color: #ffdee5 !important;
+    }
+    
+    select option:first-child{
+        color: #ffdee5 !important;
+    } */
+    
+    h1 {
+        text-align: center;
+    }
+    
+    i {
+        color: #ff5794;
+        font-size: 30px;
+    }
+    
+    .img-md {
+        width: 300px;
+        height: 150px;
+    }
+    
+    .logo-sm {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .form {
+        max-width: 300px;
+        margin: 5em auto 0 auto;  /* TRBL */
+      } 
+      
+    
+    /* .btn btn-primary btn-block {
+        color: #ff5794;
+    
+    } */
+    
+    .site-wrapper {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .site-wrapper-inner {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    /* The footer always appears at the bottom of the browser window. */
+    
+    footer {
+        padding-top: 75px;
+        padding-bottom: 75PX;
+        bottom: 0;
+        text-align: center;
+    }
+    
+    .sidenav {
+        height: 100%;
+        width: 500px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        overflow-x: scroll;
+        padding-top: 40px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 40px;
+      }
+    
+      .sidenavR {
+        height: 100%;
+        width: 500px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: #333;
+        overflow-x: scroll;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    
+     
+      .sidenavR input, select, textarea {
+        padding: 2px 8px 2px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        background-color:#ffdee5;
+        outline: none;
+        display: block;
+      }
+    
+    /* .sidenavR a {
+        color:#333;
+    } */
+    
+    /* .sidenavR input:focus {
+        background-color: #ffdee5;
+        outline-color: white;
+    } */
+    
+    .flash-msg {
+        color: white;
+        font-size: 30px;
+    }
+    
+    /* input {
+        background-color: #ffdee5; 
+        border: none;
+    
+      } */
+      
+      .sidenav input {
+        padding: 2px 8px 2px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        background-color: #ffdee5;
+        outline : none;
+        display: block;
+      }
+    
+    /* input:focus, select:focus,
+    textarea:focus,
+    input:active,
+    select:active {
+        background-color:#ffdee5;
+        outline-color: white;
+        box-shadow: 0 0 0 rgb(255, 255, 255);
+        border-color: transparent;
+        border-bottom: 2px solid #ff5794;;
+    
+    } */
+    
+    
+    .sidenavR select option:disabled {
+        background-color:#ffdee5;
+    }
+    
+    option:disabled {
+        background-color:#ffdee5;
+    }
+    
+    
+      .sidenav a:hover {
+        color: white;
+      }
+    
+      
+    
+      a:hover {
+        color: white;
+      }
+    
+    
+    

@@ -26,10 +26,10 @@ def get_taster_id(user_name):
     return taster.taster_id
 
 
-def create_reservation(taster_id, date, time):
+def create_reservation(taster_id, date, time, date_time):
     """Create and return a reservation"""
 
-    reservation = Reservation(taster_id=taster_id, date=date, time=time)
+    reservation = Reservation(taster_id=taster_id, date=date, time=time, date_time=date_time)
 
     db.session.add(reservation)
     db.session.commit()
@@ -46,7 +46,7 @@ def view_reservations(taster_id):
 def check_taken(date, min, max):
     """Check to see if a reservation already exists for a given date and time"""
 
-    taken = Reservation.query.filter(Reservation.date==date, Reservation.time>=min, Reservation.time<=max).all()
+    taken = Reservation.query.filter(Reservation.date_time>=min, Reservation.date_time<=max).all()
     return taken
 
 
@@ -56,6 +56,11 @@ def check_double_reservation(taster_id, date):
     reservation = Reservation.query.filter_by(taster_id=taster_id, date=date).first()
     return reservation
 
+
+def find_min_date():
+    """Checks current date"""
+    min_date = datetime.date.today()
+    return min_date
 
 
 if __name__ == '__main__':

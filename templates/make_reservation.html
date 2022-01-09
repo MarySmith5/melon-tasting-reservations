@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+  body {
+    
+    background: url("/static/images/melon-g9551061c7_1920.jpg");
+  }
+  
+</style>
+{% endblock %}
+
+{% block title %}Make Reservation{% endblock %}
+
+{% block body %}
+<div class="sidenavR">
+    {% for msg in get_flashed_messages() %}
+    <p class="flash-msg">
+    {{ msg }}
+    </p>
+    {% endfor %}
+        
+        <body>
+        <form class="form" method="POST" action="/make_reservation">
+            <!-- <font color="#ffdee5"> -->
+                <h2>Reservation Scheduler</h2>
+            <p></p>
+                <div class="form-group">
+                    <label for="date_field" class="sr-only">Choose a date:</label>
+                    <input type="date" id="date" name="date" min={{min_date}} class="form-control input-lg">
+                </div>
+                <p></p>
+                <p>Select a time range for your reservation.</p>
+                
+                <div class="form-group">
+                    
+                    <label for="earliest_hour" class="sr-only">Earliest Time:</label>
+                    
+                        <select name="earliest_hour" class="form-control input-lg">
+                            <option value="" disabled selected hidden>Hour</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        
+                        <select name="earliest_minutes" class="form-control input-lg">
+                            <option value="" disabled selected hidden>Minutes</option>
+                            <option value="00">00</option>
+                            <option value="30">30</option>
+                        </select>
+                        <select name="earliest_AP" class="form-control input-lg">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+
+                    <!-- <input type="time" step="1800" id="earliest-time" name="earliest-time" class="form-control input-lg"> -->
+                </div>
+                <p></p>
+                <div class="form-group">
+                    <label for="latest-time" class="sr-only">Latest time:</label>
+                    
+                        <select name="latest_hour" class="form-control input-lg">
+                            <option value="" disabled selected hidden>Hour</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        
+                        <select name="latest_minutes" class="form-control input-lg">
+                            <option value="" disabled selected hidden>Minutes</option>
+                            <option value="00">00</option>
+                            <option value="30">30</option>
+                        </select>
+                        <select name="latest_AP" class="form-control input-lg">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+
+                    <!-- <input type="time" step="1800" id="earliest-time" name="earliest-time" class="form-control input-lg"> -->
+                <!-- </div>
+                    <input type="time" step="1800" id="latest-time" name="latest-time" class="form-control input-lg">
+                </div> -->
+                <p></p> 
+                
+                <div class="form-group">
+                    <button class="btn btn-block btn-secondary fw-bold bg-pink border-white" type="submit">Submit
+                    </button>
+                </div>
+        </form>
+        <div>
+            <p></p>
+            <h2>or</h2>
+            <a class="md" href='/view_my_reservations'>Click here to VIEW your existing reservations</a>
+        </div>
+        </body>
+</div>  
+{% endblock %}  
+</html>
+
+
+

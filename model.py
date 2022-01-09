@@ -2,6 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, time
+import arrow
 
 db = SQLAlchemy()
 
@@ -29,12 +30,17 @@ class Reservation(db.Model):
     taster_id = db.Column(db.Integer, db.ForeignKey('tasters.taster_id'), nullable=False)
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
+    date_time = db.Column(db.DateTime, nullable=False)
     
     my_taster = db.relationship('Taster', back_populates='my_reservations')
 
     def __repr__(self):
         """Show info about a reservation"""
         return f"Tasting on {self.date} at {self.time}"
+
+    # def get_aware(self):
+    #     appointment_time = arrow.get(self.date_time)
+    #     return appointment_time
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///reservations", echo=False):
