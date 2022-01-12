@@ -18,13 +18,18 @@
 
   <div>
     <form class="form" method="POST" action='/select_reservation'>
-        Choose reservation time for {{date}}
-        {% for time in available_times %}
-      
-        <input type="radio" name="res_time" value={{time}}>
-        <label>{{ time }}</label>
-        {% endfor %}
-        <button class="btn btn-block btn-secondary fw-bold bg-pink border-white" type="submit">Make Reservation
+        Choose reservation time for:
+        <p></p>
+        <input name="date" value="{{date}}" class="form-control input-lg" readonly></input>        
+                
+        <select name="res_time" class="form-control input-lg">
+            <option value="" disabled selected hidden>Choose Time</option>
+            {% for time in available_times %} 
+            <option value="{{time}}">{{time}}</option>
+            {% endfor %}
+        </select>
+        <p></p>
+        <button class="btn btn-block btn-secondary fw-bold border-white" type="submit">Make Reservation
         </button>
       
       </form>

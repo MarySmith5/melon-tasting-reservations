@@ -41,9 +41,10 @@ def view_reservations(taster_id):
     """Show all reservations for a taster"""
 
     return Reservation.query.filter_by(taster_id=taster_id).order_by('date').all()
+    
 
 
-def check_taken(date, min, max):
+def check_taken(min, max):
     """Check to see if a reservation already exists for a given date and time"""
 
     taken = Reservation.query.filter(Reservation.date_time>=min, Reservation.date_time<=max).all()

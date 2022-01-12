@@ -34,14 +34,16 @@ class Reservation(db.Model):
     
     my_taster = db.relationship('Taster', back_populates='my_reservations')
 
+    def readable_time(self):
+        t = datetime.strftime(self.date_time, '%I:%M %p')
+        return t
+
+
     def __repr__(self):
         """Show info about a reservation"""
-        return f"Tasting on {self.date} at {self.time}"
+        return f"Tasting on {self.date} at {self.readable_time()}"
 
-    # def get_aware(self):
-    #     appointment_time = arrow.get(self.date_time)
-    #     return appointment_time
-
+    
 
 def connect_to_db(flask_app, db_uri="postgresql:///reservations", echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
