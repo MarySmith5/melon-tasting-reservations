@@ -6,7 +6,7 @@
   }
 </style>
 {% endblock %}
-{% block title %}Option to add another appointment{% endblock %} 
+{% block title %}Select time{% endblock %} 
 
 {% block body %}
 <div class="sidenav">
@@ -17,19 +17,25 @@
   {% endfor %}
 
   <div>
-    <p></p>
-    <a class="md" href='/add_appointment/{{customer_id}}'>Add another appointment for the SAME customer </a>
+    <form class="form" method="POST" action='/select_reservation'>
+        Choose reservation time for {{date}}
+        {% for time in available_times %}
+      
+        <input type="radio" name="res_time" value={{time}}>
+        <label>{{ time }}</label>
+        {% endfor %}
+        <button class="btn btn-block btn-secondary fw-bold bg-pink border-white" type="submit">Make Reservation
+        </button>
+      
+      </form>
   </div>
+
   <div>
     <p></p>
-    <a class="md" href='/customer_options'>Click here to CHANGE customers</a>
+    <h2>or</h2>
+    <a class="md" href='/view_my_reservations'>Click here to VIEW your existing reservations</a>
   </div>
-  <footer>
-    <img class="logo-sm" src="/static/friendly.png">
-    <p></p>
-    <a href="/login">Logout</a>
-    {% block footer %}{% endblock %}
-  </footer> 
+  
 </div>
 
 {% endblock %}

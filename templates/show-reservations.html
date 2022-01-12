@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head %}
+<style>
+  body {
+    background: url("/static/images/melon-g9551061c7_1920.jpg");
+  }
+</style>
+{% endblock %}
+{% block title %}Select time{% endblock %} 
+
+{% block body %}
+<div class="sidenav">
+  {% for msg in get_flashed_messages() %}
+  <p class="flash-msg">
+    {{ msg }}
+  </p>
+  {% endfor %}
+
+  <div>
+   <h2>Showing reservations for {{taster}}</h2>
+        <p></p>
+        {% for res in my_reservations %}
+        <p>{{ res }}</p>
+        {% endfor %}
+        
+  </div>
+
+  <div>
+    <p></p>
+    
+    <a class="md" href='/'>Return to homepage</a>
+  </div>
+  
+</div>
+
+{% endblock %}

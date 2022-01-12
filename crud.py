@@ -63,6 +63,22 @@ def find_min_date():
     return min_date
 
 
+def find_time_range(times, min, max):
+    
+    
+    for i, time in enumerate(times): 
+        if time == min:
+            a = i
+        if time == max:
+            z = i + 1
+            if max == "11:30 PM":
+                time_range = times[a:]
+            else:
+                time_range = times[a:z]
+
+    return time_range
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
