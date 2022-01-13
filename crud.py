@@ -71,13 +71,16 @@ def find_time_range(times, min, max):
         if time == min:
             a = i
         if time == max:
-            z = i + 1
-            if max == "11:30 PM":
-                time_range = times[a:]
-            else:
-                time_range = times[a:z]
+            z = i 
+    if a > z:
+        return "invalid"
 
-    return time_range
+    elif max == "11:30 PM":
+        time_range = times[a:]
+    else:
+        time_range = times[a:z+1]
+
+        return time_range
 
 
 if __name__ == '__main__':

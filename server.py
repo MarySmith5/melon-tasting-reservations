@@ -94,6 +94,11 @@ def process_reservation():
     
 
     time_range = crud.find_time_range(TIMES, min_time, max_time)
+    
+    if time_range == "invalid":
+        flash(f"Latest time must be later than earliest time")
+        return redirect('/make_reservation')
+
     available_times = []
     taken_times = []
 
