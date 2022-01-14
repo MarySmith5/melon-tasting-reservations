@@ -12,6 +12,8 @@ os.system(f'createdb {db_name}')
 db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
 model.connect_to_db(server.app, db_uri)
 
+model.db.drop_all()
+
 model.db.create_all()
 
 
