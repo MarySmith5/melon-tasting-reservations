@@ -110,7 +110,8 @@ def process_reservation():
     if taken:
         
         for took in taken:
-            taken_t = datetime.strftime(took.date_time, '%-I:%M %p')
+            fix_tz = tz.localize(took.date_time)
+            taken_t = datetime.strftime(fix_tz, '%-I:%M %p')
             taken_time = f" {taken_t}"
             taken_times.append(taken_time)
     print(f"*****processed times {taken_times} ******")
