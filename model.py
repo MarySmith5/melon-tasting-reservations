@@ -3,8 +3,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, time
 import os
+import pytz
 
 db = SQLAlchemy()
+
+tz = pytz.timezone("America/Denver")
 
 class Taster(db.Model):
     """An account holder"""
@@ -36,6 +39,7 @@ class Reservation(db.Model):
 
     def readable_time(self):
         t = datetime.strftime(self.date_time, '%I:%M %p')
+        t = tz.localize(t)
         return t
 
 

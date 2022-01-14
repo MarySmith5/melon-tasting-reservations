@@ -108,7 +108,7 @@ def process_reservation():
     taken = crud.check_taken(min, max)
 
     if taken:
-        print(f"*****TAKEN {taken} ******")
+        
         for took in taken:
             taken_t = datetime.strftime(took.date_time, '%-I:%M %p')
             taken_time = f" {taken_t}"
