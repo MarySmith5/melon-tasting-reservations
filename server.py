@@ -169,5 +169,6 @@ def show_reservations():
 
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
-    connect_to_db(app)
+    db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
+    connect_to_db(app, db_uri)
     app.run()

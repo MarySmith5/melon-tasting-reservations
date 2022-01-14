@@ -4,9 +4,11 @@ import model
 import server
 from datetime import datetime, time
 
+db_uri = os.environ["DATABASE_URL"]
+db_name = db_uri[db_uri.index("5432/")+5:]
 
-os.system('dropdb reservations')
-os.system('createdb reservations')
+os.system(f'dropdb {db_name} --if-exists')
+os.system(f'createdb {db_name}')
 
 model.connect_to_db(server.app)
 model.db.create_all()
