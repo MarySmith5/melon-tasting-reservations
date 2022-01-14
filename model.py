@@ -2,7 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, time
-import arrow
+import os
 
 db = SQLAlchemy()
 
@@ -59,8 +59,8 @@ def connect_to_db(flask_app, db_uri, echo=False):
 if __name__ == "__main__":
     from server import app
 
-    
-    connect_to_db(app, echo=False)
+    db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
+    connect_to_db(app, db_uri)
 
 
 

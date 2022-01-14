@@ -9,8 +9,9 @@ db_name = db_uri[db_uri.index("5432/")+5:]
 
 os.system(f'dropdb {db_name} --if-exists')
 os.system(f'createdb {db_name}')
+db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
+model.connect_to_db(server.app, db_uri)
 
-model.connect_to_db(server.app)
 model.db.create_all()
 
 
