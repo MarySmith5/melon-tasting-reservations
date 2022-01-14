@@ -11,6 +11,6 @@ Python, Flask, SQLAlchemy, Jinja2,
 HTML/CSS, pytz, Bootstrap
 
 #### To Test
-This app does not have a a page to create an account. To test the functionality of the app, sign in under the fictitious usernames of "MelonLover" or "I8Melons."
+This app does not have a a page to create an account. To test the functionality of the app, sign in under the fictitious usernames of "MelonLover" or "I8Melons." This app is deployed at https://ancient-dusk-30150.herokuapp.com/
 
 
