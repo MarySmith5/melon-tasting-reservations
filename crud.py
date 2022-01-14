@@ -47,7 +47,7 @@ def view_reservations(taster_id):
 def check_taken(min, max):
     """Check to see if a reservation already exists for a given date and time"""
 
-    taken = Reservation.query.filter(Reservation.date_time>=min, Reservation.date_time<=max).all()
+    taken = Reservation.query.filter(Reservation.fix_timezone>=min, Reservation.fix_timezone<=max).all()
     return taken
 
 

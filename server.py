@@ -122,6 +122,7 @@ def process_reservation():
 
     reservation = crud.check_double_reservation(taster_id, date)
     if reservation:
+        f_tz = tz.localize(reservation.date_time)
         t = datetime.strftime(reservation.date_time, "%I:%M %p")
         flash(f"You already have an reservation on {date_data} at {t}. Only one reservation per taster each day.")
         return redirect('/make_reservation')
