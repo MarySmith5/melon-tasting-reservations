@@ -13,6 +13,9 @@ app = Flask(__name__)
 app.secret_key = os.environ['SECRET_KEY']
 app.jinja_env.undefined = StrictUndefined
 
+db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
+connect_to_db(app, db_uri)
+
 USER_SESSION = session
 
 TIMES = [" 12:00 AM", " 12:30 AM", " 1:00 AM", " 1:30 AM", " 2:00 AM", " 2:30 AM", 
@@ -168,7 +171,6 @@ def show_reservations():
 
 
 if __name__ == "__main__":
-    # DebugToolbarExtension(app)
-    db_uri = os.environ["DATABASE_URL"].replace("postgres", "postgresql")
-    connect_to_db(app, db_uri)
+    
+    
     app.run()
