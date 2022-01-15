@@ -38,12 +38,9 @@ class Reservation(db.Model):
     my_taster = db.relationship('Taster', back_populates='my_reservations')
 
     def readable_time(self):
-        fixed_tzone = tz.localize(self.date_time)
-        t = datetime.strftime(fixed_tzone, '%I:%M %p')
+        
+        t = datetime.strftime(self.date_time, '%I:%M %p')
         return t
-
-    def fix_timezone(self):
-        t = tz.localize(self.date_time)
 
 
     def __repr__(self):
